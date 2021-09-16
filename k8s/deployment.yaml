@@ -27,7 +27,7 @@ spec:
             - name: PROTOCOLS
             - name: LOG_LEVEL
               value: debug
-          image: quay.io/upslope/janet-li-tekton-e2e-app
+          image: quay.io/upslope/express-sample-app
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
