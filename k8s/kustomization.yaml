@@ -5,6 +5,7 @@ resources:
 - service.yaml
 - route.yaml
 commonLabels:
-  app: jingyi-wang-express-sample-app
-  app.kubernetes.io/instance: jingyi-wang-express-sample-app-instance
-  app.kubernetes.io/name: jingyi-wang-express-sample-app
+  app: janet-li-express-sample-app
+  app.kubernetes.io/instance: janet-li-express-sample-app-instance
+  app.kubernetes.io/name: janet-li-express-sample-app
+  app.openshift.io/runtime: js
