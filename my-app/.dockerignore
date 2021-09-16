@@ -1,4 +1,0 @@
-# ignore quay.io credentials
-tekton/janet-li-quay-io-credentials-secret.yml
-# ignore git credentials
-tekton/jingyi-wang-jessie-git-credentials-secret.yaml
