@@ -1,24 +1,23 @@
-# Use node Docker image
-FROM quay.io/ibmgaragecloud/node:lts-stretch
+# FROM quay.io/ibmgaragecloud/node:lts-stretch
+FROM node:14-alpine
 
-# From the documentation, "The WORKDIR instruction sets the working directory for any
-# RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile"
+# Create app directory
 WORKDIR /usr/src/app
 
-# COPY package.json and package-lock.json into root of WORKDIR
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
 COPY package*.json ./
 
-# Executes commands
-RUN npm ci
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
 
-# Copies files from source to destination, in this case the root of the build context
-# into the root of the WORKDIR
+# Bundle app source
 COPY . .
 
 RUN npm run build
 
-# Document that this container exposes something on port 3000
 EXPOSE 3000
 
-# Command to use for starting the application
-CMD ["npm", "start"]
+CMD [ "npm", "run", "start" ]
